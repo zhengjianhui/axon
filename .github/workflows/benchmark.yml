@@ -3,9 +3,11 @@ on:
   pull_request:
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Git checkout
         uses: actions/checkout@v1
-      - name: Branch name
-        run: echo Submitter's repo address ${{ github.repository }} && echo Submitter's Branch ${{ github.head_ref }}
+      - name: Run benchmark
+        run: |
+          cd /home/ckb/axon-devops/benchmark/deploy
+          ansible-playbook build.yml --tags build -e axon_branch=${{ github.head_ref }} -e pr_number=${{ github.event.pull_request.number }}
