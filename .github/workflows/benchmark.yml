@@ -1,0 +1,11 @@
+name: Benchamark CI
+on:
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v1
+      - name: Branch name
+        run: echo Submitter's repo address ${{ github.repositoryUrl }} && echo Submitter's Branch ${{ github.head_ref }}
