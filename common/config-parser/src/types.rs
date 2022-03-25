@@ -184,7 +184,6 @@ pub struct Config {
     pub prometheus:                  Option<ConfigPrometheus>,
     pub cross_client:                ConfigCrossClient,
     pub epoch_len:                   u64,
-    pub asset_contract_address:      H256,
     pub metadata_contract_address:   H256,
     pub crosschain_contract_address: H256,
 }
